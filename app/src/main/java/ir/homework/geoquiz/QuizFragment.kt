@@ -1,15 +1,14 @@
 package ir.homework.geoquiz
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getColor
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ir.homework.geoquiz.databinding.FragmentQuizBinding
 
@@ -48,6 +47,12 @@ class QuizFragment : Fragment() {
         setData()
         initViews()
         onClickListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val activity = activity as MainActivity?
+        activity?.hideUpButton()
     }
 
     private fun setData(){
