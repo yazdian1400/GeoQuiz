@@ -36,6 +36,11 @@ class CheatFragment : Fragment() {
         val num = arguments?.getInt("num")
         vModel = ViewModelProvider(requireActivity())[GeoQuizViewModel::class.java]
 
+        if (vModel.questionList[num!!].hasCheated) {
+            binding.tvCheatAnswer.text = vModel.questionList[num!!].answer.toString()
+            binding.btnShowAnswer.setBackgroundColor(getColor(requireContext(),R.color.green_dark_A100))
+        }
+
         binding.btnShowAnswer.setOnClickListener{
             binding.tvCheatAnswer.text = vModel.questionList[num!!].answer.toString()
             binding.btnShowAnswer.setBackgroundColor(getColor(requireContext(),R.color.green_dark_A100))
