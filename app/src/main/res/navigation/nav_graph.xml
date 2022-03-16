@@ -22,5 +22,8 @@
         <argument
             android:name="answer"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_return_to_quiz"
+            app:destination="@id/quizFragment" />
     </fragment>
 </navigation>

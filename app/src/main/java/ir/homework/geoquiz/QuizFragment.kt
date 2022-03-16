@@ -17,6 +17,7 @@ class QuizFragment : Fragment() {
     lateinit var binding: FragmentQuizBinding
     val questionList = mutableListOf<Question>()
     var num = 0
+    var hasCheated = false
 
     companion object{
         const val NUM_OF_QUESTIONS = 10
@@ -40,6 +41,10 @@ class QuizFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (arguments?.getBoolean("hasCheated") != null) {
+            hasCheated = arguments?.getBoolean("hasCheated") as Boolean
+            if (hasCheated) questionList[num].hasCheated = true
+        }
         setData()
         initViews()
         onClickListeners()
