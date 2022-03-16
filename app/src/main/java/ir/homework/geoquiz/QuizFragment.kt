@@ -17,7 +17,7 @@ import ir.homework.geoquiz.databinding.FragmentQuizBinding
 class QuizFragment : Fragment() {
     lateinit var binding: FragmentQuizBinding
     var hasCheated = false
-    private lateinit var vModel: GeoQuizViewModel
+    lateinit var vModel: GeoQuizViewModel
 
     companion object{
         const val NUM_OF_QUESTIONS = 10

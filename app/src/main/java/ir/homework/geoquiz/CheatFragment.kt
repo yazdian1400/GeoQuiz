@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ir.homework.geoquiz.databinding.FragmentCheatBinding
 
 class CheatFragment : Fragment() {
     lateinit var binding: FragmentCheatBinding
+    lateinit var vModel: GeoQuizViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +34,12 @@ class CheatFragment : Fragment() {
 
         //val answer = arguments?.getBoolean("answer")
         val num = arguments?.getInt("num")
+        vModel = ViewModelProvider(this)[GeoQuizViewModel::class.java]
 
         binding.btnShowAnswer.setOnClickListener{
-            binding.tvCheatAnswer.text = GeoQuiz.questionList[num!!].answer.toString()
+            binding.tvCheatAnswer.text = vModel.questionList[num!!].answer.toString()
             binding.btnShowAnswer.setBackgroundColor(getColor(requireContext(),R.color.green_dark_A100))
-            GeoQuiz.questionList[num!!].hasCheated = true
+            vModel.questionList[num!!].hasCheated = true
         }
     }
 
