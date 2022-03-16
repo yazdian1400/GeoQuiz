@@ -1,5 +1,7 @@
 package ir.homework.geoquiz
 
+import android.app.Activity
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +11,10 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ir.homework.geoquiz.databinding.FragmentQuizBinding
+
 
 class QuizFragment : Fragment() {
     lateinit var binding: FragmentQuizBinding
@@ -130,5 +132,12 @@ class QuizFragment : Fragment() {
         if ((vModel.questionList[vModel.num].userAnswer == UserAnswer.TRUE && vModel.questionList[vModel.num].answer
                     || vModel.questionList[vModel.num].userAnswer == UserAnswer.FALSE && !vModel.questionList[vModel.num].answer) && vModel.questionList[vModel.num].hasCheated)
             Toast.makeText(requireContext(), "Cheating is wrong.", Toast.LENGTH_LONG).show()
+    }
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (isVisibleToUser) {
+            val a: Activity? = activity
+            if (a != null) a.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
+        }
     }
 }
