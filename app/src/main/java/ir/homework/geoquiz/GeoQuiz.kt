@@ -5,6 +5,7 @@ object GeoQuiz {
     var num = 0
 
     fun setData() {
+        questionList.clear()
         questionList.add(Question("Birjand is the capital of North Khorasan.", false))
         questionList.add(Question("Tehran is the capital of Iran.", true))
         questionList.add(Question("There is no sea in Yazd.", true))
