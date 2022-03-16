@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yellow_A100">#FFFF8D</color>
+    <color name="yellow_A100">#FDF8C6</color>
     <color name="pink_A100">#FF80AB</color>
     <color name="pink_dark_A100">#D58EA7</color>
     <color name="blue_A100">#82B1FF</color>
@@ -17,7 +17,7 @@
     <color name="green_A100">#84FFFF</color>
     <color name="green_dark_A100">#8EC3C3</color>
     <color name="gray_A100">#686767</color>
-    <color name="yellow2_A100">#FFE57F</color>
+    <color name="yellow2_A100">#FDE37A</color>
 
 
 </resources>

@@ -34,7 +34,7 @@ class CheatFragment : Fragment() {
 
         //val answer = arguments?.getBoolean("answer")
         val num = arguments?.getInt("num")
-        vModel = ViewModelProvider(this)[GeoQuizViewModel::class.java]
+        vModel = ViewModelProvider(requireActivity())[GeoQuizViewModel::class.java]
 
         binding.btnShowAnswer.setOnClickListener{
             binding.tvCheatAnswer.text = vModel.questionList[num!!].answer.toString()

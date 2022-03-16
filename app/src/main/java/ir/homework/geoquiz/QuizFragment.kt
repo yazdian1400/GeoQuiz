@@ -42,7 +42,7 @@ class QuizFragment : Fragment() {
             hasCheated = arguments?.getBoolean("hasCheated") as Boolean
             if (hasCheated) vModel.questionList[vModel.num].hasCheated = true
         }
-        vModel = ViewModelProvider(this)[GeoQuizViewModel::class.java]
+        vModel = ViewModelProvider(requireActivity())[GeoQuizViewModel::class.java]
         initViews()
         onClickListeners()
     }
