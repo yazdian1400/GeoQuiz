@@ -13,7 +13,6 @@ import ir.homework.geoquiz.databinding.FragmentCheatBinding
 
 class CheatFragment : Fragment() {
     lateinit var binding: FragmentCheatBinding
-    var hasCheated = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +30,13 @@ class CheatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val answer = arguments?.getBoolean("answer")
+        //val answer = arguments?.getBoolean("answer")
+        val num = arguments?.getInt("num")
 
         binding.btnShowAnswer.setOnClickListener{
-            binding.tvCheatAnswer.text = answer.toString()
+            binding.tvCheatAnswer.text = GeoQuiz.questionList[num!!].answer.toString()
             binding.btnShowAnswer.setBackgroundColor(getColor(requireContext(),R.color.green_dark_A100))
-            hasCheated = true
+            GeoQuiz.questionList[num!!].hasCheated = true
         }
     }
 
@@ -50,9 +50,6 @@ class CheatFragment : Fragment() {
         when (item.itemId) {
             android.R.id.home -> {
                 (activity as MainActivity?)?.onBackPressed()
-//                val bundle = Bundle()
-//                bundle.putBoolean("hasCheated",hasCheated)
-//                findNavController().navigate(R.id.action_return_to_quiz)
                 return true
             }
         }

@@ -85,7 +85,8 @@ class QuizFragment : Fragment() {
         }
         binding.btnCheat.setOnClickListener {
             val bundle = Bundle()
-            bundle.putBoolean("answer",GeoQuiz.questionList[GeoQuiz.num].answer)
+            //bundle.putBoolean("answer",GeoQuiz.questionList[GeoQuiz.num].answer)
+            bundle.putInt("num",GeoQuiz.num)
             findNavController().navigate(R.id.cheating_action,bundle)
         }
     }
